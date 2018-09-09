@@ -1,0 +1,12 @@
+- name: First time setup of OpenNIC on server
+  hosts: opennic
+  remote_user: root # update if using become
+  ## Use become by uncommenting the lines below to elevate once reaching the server
+  # become: yes
+  # become_user: root
+  # become_method: sudo
+
+  # Roles for different OS
+  roles:
+  - { role: centos, when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"}
+  # - { role: ubuntu, when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "18"} ## Coming soon
