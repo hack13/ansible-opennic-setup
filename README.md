@@ -4,6 +4,18 @@ currently only supports CentOS 7. I do plan to add Debian and Ubuntu support in 
 future. It is also an open project, so feel free to fork and make your own changes.
 I also welcome feedback.
 
+# How To Use
+On your local machine(or your Ansible host), and update your /etc/ansible/hosts like below updating with the IP Addresses of your servers:
+```
+[opennic]
+xxx.xxx.xxx.xxx
+xxx.xxx.xxx.xxx
+```
+Once you have added the hosts to your ansible hosts file, run the following command in the directory you have dropped this playbook:
+```
+ansible-playbook opennic-setup.yml
+```
+
 ## CentOS 7
 * Installs and configures Firewalld
 * Installs and configures Named
@@ -16,6 +28,7 @@ I also welcome feedback.
 * Configures SELinux to allow Named without turning off SELinux
 
 ## Ubuntu 18.04 LTS
+* **NOTE:** Pyton must be installed on your server for this to work _sudo apt-get install python_
 * Installs and configures Bind9
 * Installs and sets UFW to allow SSH and Port 53 (doesn't do any other changes)
 
