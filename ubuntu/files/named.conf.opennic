@@ -1,0 +1,159 @@
+masters opennicNS {
+    161.97.219.84;
+    2001:470:4212:10:0:100:53:10;
+    163.172.168.171;
+    94.103.153.176;
+    2001:bc8:4400:2100::17:213;
+    207.192.71.13;
+    178.63.116.152;
+    2a01:4f8:141:4281::999;
+    174.138.48.29;
+    2604:a880:800:a1::2a:2001;
+    188.226.146.136;
+    2001:470:1f04:ebf::2;
+};
+masters opennicPeers {
+};
+zone "." in {
+	type slave;
+	file "tld-root";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; };
+};
+zone "dns.opennic.glue" in {
+	type slave;
+	file "dns.opennic.glue.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "bbs" in {
+	type slave;
+	file "bbs.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "bit" in {
+	type slave;
+	file "bit.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "chan" in {
+	type slave;
+	file "chan.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "dyn" in {
+	type slave;
+	file "dyn.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+// No longer in OpenNIC commenting out
+/*
+zone "free" in {
+	type slave;
+	file "free.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+*/
+zone "fur" in {
+	type slave;
+	file "fur.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "geek" in {
+	type slave;
+	file "geek.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "gopher" in {
+	type slave;
+	file "gopher.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "indy" in {
+	type slave;
+	file "indy.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "libre" in {
+	type slave;
+	file "libre.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "neo" in {
+	type slave;
+	file "neo.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "null" in {
+	type slave;
+	file "null.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "opennic.glue" in {
+	type slave;
+	file "opennic.glue.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "oss" in {
+	type slave;
+	file "oss.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "oz" in {
+	type slave;
+	file "oz.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "parody" in {
+	type slave;
+	file "parody.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "pirate" in {
+	type slave;
+	file "pirate.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
+zone "o" in {
+	type slave;
+	file "o.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};

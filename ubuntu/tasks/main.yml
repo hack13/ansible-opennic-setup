@@ -1,0 +1,52 @@
+- name: Update all packages on system
+  apt:
+    name: '*'
+    state: latest
+    force_apt_get: yes
+    update_cache: yes
+- name: Install bind (named)
+  apt:
+    name: bind9
+    state: latest
+    force_apt_get: yes
+- name: Enable start and enable bind
+  systemd:
+    name: bind9
+    state: started
+    enabled: yes
+- name: Enable and start ufw
+  systemd:
+    name: ufw
+    state: started
+    enabled: yes
+- name: Ensure SSH is allowed
+  ufw:
+    rule: allow
+    name: OpenSSH
+- name: Update ufw to allow TCP DNS requests
+  ufw:
+    rule: allow
+    port: 53
+- name: Reload ufw
+  ufw:
+    state: reloaded
+- name: Update the bind.conf
+  copy:
+    src: named.conf
+    dest: /etc/named.conf.options
+    backup: yes
+    owner: bind
+    group: bind
+    mode: 0644
+- name: Install OpenNIC zones file
+  copy:
+    src: named.conf.opennic
+    dest: /etc/bind/named.conf.default-zones
+    backup: yes
+    owner: bind
+    group: bind
+    mode: 0644
+- name: Restart named
+  systemd:
+    name: bind9
+    state: restarted

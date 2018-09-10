@@ -15,6 +15,10 @@ I also welcome feedback.
 * Installs and configures Named
 * Configures SELinux to allow Named without turning off SELinux
 
+## Ubuntu 18.04 LTS
+* Installs and configures Bind9
+* Installs and sets UFW to allow SSH and Port 53 (doesn't do any other changes)
+
 ## To-Do
 * Debian Support
 * Ubuntu Support
