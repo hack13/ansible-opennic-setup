@@ -24,12 +24,12 @@
     name: firewalld
     state: started
     enabled: yes
-- name: Update firewalld to allow TCP DNS requests
+- name: Update firewalld to allow UDP DNS requests
   firewalld:
     port: 53/udp
     permanent: true
     state: enabled
-- name: Update firewalld to allow UDP DNS requests
+- name: Update firewalld to allow TCP DNS requests
   firewalld:
     port: 53/tcp
     permanent: true
