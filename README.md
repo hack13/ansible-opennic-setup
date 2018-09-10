@@ -9,6 +9,12 @@ I also welcome feedback.
 * Installs and configures Named
 * Configures SELinux to allow Named without turning off SELinux
 
+## Fedora 28
+* **NOTE:** Make sure in your hosts file to add your Fedora servers like so "xxx.xxx.xxx.xxx ansible_python_interpreter=/usr/bin/python3"
+* Installs and configures Firewalld
+* Installs and configures Named
+* Configures SELinux to allow Named without turning off SELinux
+
 ## To-Do
 * Debian Support
 * Ubuntu Support

@@ -1,0 +1,74 @@
+- name: Update all packages on system
+  dnf:
+    name: '*'
+    state: latest
+- name: Install required dependency libsemanage-python
+  dnf:
+    name: libsemanage-python
+    state: latest
+- name: Install required dependency python3-firewall
+  dnf:
+    name: python3-firewall
+    state: latest
+- name: Install bind (named)
+  dnf:
+    name: bind
+    state: latest
+- name: Ensure firewalld is installed
+  dnf:
+    name: firewalld
+    state: latest
+- name: Enable start and enable named
+  systemd:
+    name: named
+    state: started
+    enabled: yes
+- name: Enable and start firewalld
+  systemd:
+    name: firewalld
+    state: started
+    enabled: yes
+- name: Update firewalld to allow TCP DNS requests
+  firewalld:
+    port: 53/udp
+    permanent: true
+    state: enabled
+- name: Update firewalld to allow UDP DNS requests
+  firewalld:
+    port: 53/tcp
+    permanent: true
+    state: enabled
+- name: Reload firewalld
+  systemd:
+    name: firewalld
+    state: reloaded
+- name: Update the named.conf
+  copy:
+    src: named.conf
+    dest: /etc/named.conf
+    backup: yes
+    owner: named
+    group: named
+    mode: 0644
+- name: Install OpenNIC zones file
+  copy:
+    src: named.conf.opennic
+    dest: /var/named/named.conf.opennic
+    backup: yes
+    owner: named
+    group: named
+    mode: 0644
+- name: Update SELinux named_tcp_bind_http_port
+  seboolean:
+    name: named_tcp_bind_http_port
+    state: yes
+    persistent: yes
+- name: Update SELinux named_write_master_zones
+  seboolean:
+    name: named_write_master_zones
+    state: yes
+    persistent: yes
+- name: Restart named
+  systemd:
+    name: named
+    state: restarted
