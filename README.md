@@ -16,6 +16,8 @@ Once you have added the hosts to your ansible hosts file, run the following comm
 ansible-playbook opennic-setup.yml
 ```
 
+# Notes For Each OS
+
 ## CentOS 7
 * Installs and configures Firewalld
 * Installs and configures Named
