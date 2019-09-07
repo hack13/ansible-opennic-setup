@@ -127,3 +127,10 @@ zone "o" in {
 	notify yes;
 	masters { opennicNS; opennicPeers; };
 };
+zone "epic" in {
+	type slave;
+	file "epic.zone";
+	allow-transfer { any; };
+	notify yes;
+	masters { opennicNS; opennicPeers; };
+};
