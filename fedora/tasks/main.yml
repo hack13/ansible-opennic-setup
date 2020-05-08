@@ -2,10 +2,16 @@
   dnf:
     name: '*'
     state: latest
+- name: Install required dependency python3-libsemanage
+  dnf:
+    name: python3-libsemanage
+    state: latest
+  when: (ansible_distribution_major_version is version(FEDORA_VERSIONS|max, '<=')) and (ansible_distribution_major_version is version('31', '>='))
 - name: Install required dependency libsemanage-python
   dnf:
     name: libsemanage-python
     state: latest
+  when: (ansible_distribution_major_version is version(FEDORA_VERSIONS|min, '>=')) and (ansible_distribution_major_version is version('30', '<='))
 - name: Install required dependency python3-firewall
   dnf:
     name: python3-firewall

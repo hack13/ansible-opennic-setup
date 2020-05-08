@@ -8,6 +8,6 @@
 
   # Roles for different OS
   roles:
-  - { role: centos, when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"}
-  - { role: fedora, when: ansible_distribution == "Fedora" and ansible_distribution_major_version == "28"}
-  - { role: ubuntu, when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "18"}
+  - { role: centos, when: ansible_distribution == "CentOS" and ansible_distribution_major_version in CENTOS_VERSIONS}
+  - { role: fedora, when: ansible_distribution == "Fedora" and ansible_distribution_major_version in FEDORA_VERSIONS}
+  - { role: ubuntu, when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version in UBUNTU_VERSIONS}
