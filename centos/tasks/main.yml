@@ -6,6 +6,12 @@
   yum:
     name: libsemanage-python
     state: latest
+  when: (ansible_distribution_major_version is version('7', '='))
+- name: Install required dependency python3-policycoreutils
+  dnf:
+    name: python3-policycoreutils
+    state: latest
+  when: (ansible_distribution_major_version is version('7', '>'))
 - name: Install bind (named)
   yum:
     name: bind
