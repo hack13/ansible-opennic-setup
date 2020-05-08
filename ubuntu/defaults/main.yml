@@ -1,3 +1,2 @@
 ---
-UBUNTU_VERSIONS:
-  - 18
+UBUNTU_VERSIONS: ["18"]
