@@ -1,6 +1,6 @@
 # OpenNIC Setup with Ansible
 This is a simple Ansible Script to use to setup an OpenNIC server with Ansible. It
-currently only supports CentOS 7. I do plan to add Debian and Ubuntu support in the
+currently supports CentOS 7, Fedora 28, and Ubuntu 18.04 LTS. I do plan to add Debian and Ubuntu 20.04 support in the
 future. It is also an open project, so feel free to fork and make your own changes.
 I also welcome feedback.
 
@@ -30,10 +30,10 @@ ansible-playbook opennic-setup.yml
 * Configures SELinux to allow Named without turning off SELinux
 
 ## Ubuntu 18.04 LTS
-* **NOTE:** Pyton must be installed on your server for this to work _sudo apt-get install python_
+* **NOTE:** Python must be installed on your server for this to work _sudo apt-get install python_
 * Installs and configures Bind9
 * Installs and sets UFW to allow SSH and Port 53 (doesn't do any other changes)
 
 ## To-Do
 * Debian Support
-* Ubuntu Support
+* Ubuntu 20.04 LTS Support
