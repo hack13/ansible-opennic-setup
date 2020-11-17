@@ -1,6 +1,6 @@
 # OpenNIC Setup with Ansible
 This is a simple Ansible Script to use to setup an OpenNIC server with Ansible. It
-currently supports CentOS 7, Fedora 28, and Ubuntu 18.04 LTS. I do plan to add Debian and Ubuntu 20.04 support in the
+currently supports CentOS 7, Fedora 28 through 33, and Ubuntu 18.04 LTS. I do plan to add Debian and Ubuntu 20.04 support in the
 future. It is also an open project, so feel free to fork and make your own changes.
 I also welcome feedback.
 
