@@ -1,3 +1,6 @@
+# Archived Project
+I no longer maintain a Tier 2 Resolver for OpenNIC and no longer maintain this repository. Please feel free to fork and make updated version for people to use.
+
 # OpenNIC Setup with Ansible
 This is a simple Ansible Script to use to setup an OpenNIC server with Ansible. It
 currently supports CentOS 7, Fedora 28 through 33, and Ubuntu 18.04 LTS. I do plan to add Debian and Ubuntu 20.04 support in the
